@@ -1,0 +1,35 @@
+PODS:
+  - Beagle (1.7.0):
+    - Beagle/Beagle (= 1.7.0)
+  - Beagle/Beagle (1.7.0):
+    - BeagleYogaKit
+  - BeagleDefaults (1.7.0):
+    - Beagle
+  - BeagleScaffold (1.7.0):
+    - BeagleDefaults
+  - BeagleYoga (1.19.0)
+  - BeagleYogaKit (1.19.0):
+    - BeagleYoga (~> 1.19)
+
+DEPENDENCIES:
+  - Beagle
+  - BeagleScaffold
+
+SPEC REPOS:
+  trunk:
+    - Beagle
+    - BeagleDefaults
+    - BeagleScaffold
+    - BeagleYoga
+    - BeagleYogaKit
+
+SPEC CHECKSUMS:
+  Beagle: 879fd93aba0a948c1afd4185557e5e6f82779ada
+  BeagleDefaults: 5f896583e85261fa1e9d052e0bc4b6c35810d67e
+  BeagleScaffold: 18bbf70ea2d8898bbf62a5263d6357ba26c8679e
+  BeagleYoga: 09c09f226e5bbabaea81e9b0c113676ad1c67fa3
+  BeagleYogaKit: 8d17491b81f30f17f14ded3d057432f6bcce0f1e
+
+PODFILE CHECKSUM: 002be16e6e1cfc7570acba0255b8c365f7db0515
+
+COCOAPODS: 1.10.1
