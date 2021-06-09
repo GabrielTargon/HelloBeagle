@@ -12,17 +12,8 @@ class MyBeagleScreen {
     
     static func make() -> Screen {
         return Screen(
-            child: Container(
-                children: [
-                    Text("Hello Beagle!")
-                ]
-            ).applyFlex(
-                Flex(
-                    justifyContent: .center,
-                    alignItems: .center,
-                    grow: 1
-                )
-            )
+            child:
+                BoxWidget(title: "Teste")
         )
     }
 }

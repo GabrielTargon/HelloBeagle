@@ -7,6 +7,7 @@ target 'HelloBeagle' do
 
   pod 'Beagle'
   pod 'BeagleScaffold'
+  pod 'Sourcery'
   # Pods for HelloBeagle
 
 end

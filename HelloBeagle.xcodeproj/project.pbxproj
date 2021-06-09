@@ -17,6 +17,10 @@
 		477D8389266563B3008E091C /* MyBeagleScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477D8388266563B3008E091C /* MyBeagleScreen.swift */; };
 		47EAA3C426656CA7006679E2 /* NetworkClientDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47EAA3C326656CA7006679E2 /* NetworkClientDefault.swift */; };
 		47EAA3C626656D60006679E2 /* HttpRequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47EAA3C526656D60006679E2 /* HttpRequestBuilder.swift */; };
+		B56238D72671524F0038E8B4 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56238D62671524F0038E8B4 /* Box.swift */; };
+		B56238D92671527C0038E8B4 /* BoxWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56238D82671527C0038E8B4 /* BoxWidget.swift */; };
+		B56238EC267159330038E8B4 /* Equality.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56238EA267159330038E8B4 /* Equality.generated.swift */; };
+		B56238ED267159330038E8B4 /* AutoDecodable.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56238EB267159330038E8B4 /* AutoDecodable.generated.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +36,10 @@
 		477D8388266563B3008E091C /* MyBeagleScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBeagleScreen.swift; sourceTree = "<group>"; };
 		47EAA3C326656CA7006679E2 /* NetworkClientDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClientDefault.swift; sourceTree = "<group>"; };
 		47EAA3C526656D60006679E2 /* HttpRequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpRequestBuilder.swift; sourceTree = "<group>"; };
+		B56238D62671524F0038E8B4 /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
+		B56238D82671527C0038E8B4 /* BoxWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxWidget.swift; sourceTree = "<group>"; };
+		B56238EA267159330038E8B4 /* Equality.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Equality.generated.swift; sourceTree = "<group>"; };
+		B56238EB267159330038E8B4 /* AutoDecodable.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoDecodable.generated.swift; sourceTree = "<group>"; };
 		C32C22FEA861E74A2FD20EAA /* Pods-HelloBeagle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HelloBeagle.release.xcconfig"; path = "Target Support Files/Pods-HelloBeagle/Pods-HelloBeagle.release.xcconfig"; sourceTree = "<group>"; };
 		D741E35C05616023E67A4925 /* Pods_HelloBeagle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HelloBeagle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -77,6 +85,7 @@
 		477D83732665622F008E091C /* HelloBeagle */ = {
 			isa = PBXGroup;
 			children = (
+				B56238E8267159330038E8B4 /* CodeGeneration */,
 				477D83742665622F008E091C /* AppDelegate.swift */,
 				477D83762665622F008E091C /* SceneDelegate.swift */,
 				477D83782665622F008E091C /* ViewController.swift */,
@@ -87,6 +96,8 @@
 				477D8388266563B3008E091C /* MyBeagleScreen.swift */,
 				47EAA3C326656CA7006679E2 /* NetworkClientDefault.swift */,
 				47EAA3C526656D60006679E2 /* HttpRequestBuilder.swift */,
+				B56238D62671524F0038E8B4 /* Box.swift */,
+				B56238D82671527C0038E8B4 /* BoxWidget.swift */,
 			);
 			path = HelloBeagle;
 			sourceTree = "<group>";
@@ -100,6 +111,23 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		B56238E8267159330038E8B4 /* CodeGeneration */ = {
+			isa = PBXGroup;
+			children = (
+				B56238E9267159330038E8B4 /* Generated */,
+			);
+			path = CodeGeneration;
+			sourceTree = "<group>";
+		};
+		B56238E9267159330038E8B4 /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				B56238EA267159330038E8B4 /* Equality.generated.swift */,
+				B56238EB267159330038E8B4 /* AutoDecodable.generated.swift */,
+			);
+			path = Generated;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -108,6 +136,7 @@
 			buildConfigurationList = 477D838526656230008E091C /* Build configuration list for PBXNativeTarget "HelloBeagle" */;
 			buildPhases = (
 				35AE7DCEB2F08C8283EBDB82 /* [CP] Check Pods Manifest.lock */,
+				B56238DA267153A00038E8B4 /* ShellScript */,
 				477D836D2665622F008E091C /* Sources */,
 				477D836E2665622F008E091C /* Frameworks */,
 				477D836F2665622F008E091C /* Resources */,
@@ -207,6 +236,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		B56238DA267153A00038E8B4 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which sourcery >/dev/null; then\nunset SDKROOT\nsourcery --config $SRCROOT\nelse\necho \"warning: Sourcery not installed, download using brew install sourcery\"\nfi\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -215,11 +261,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				477D83792665622F008E091C /* ViewController.swift in Sources */,
+				B56238ED267159330038E8B4 /* AutoDecodable.generated.swift in Sources */,
+				B56238EC267159330038E8B4 /* Equality.generated.swift in Sources */,
+				B56238D72671524F0038E8B4 /* Box.swift in Sources */,
 				47EAA3C626656D60006679E2 /* HttpRequestBuilder.swift in Sources */,
 				477D8389266563B3008E091C /* MyBeagleScreen.swift in Sources */,
 				477D83752665622F008E091C /* AppDelegate.swift in Sources */,
 				47EAA3C426656CA7006679E2 /* NetworkClientDefault.swift in Sources */,
 				477D83772665622F008E091C /* SceneDelegate.swift in Sources */,
+				B56238D92671527C0038E8B4 /* BoxWidget.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

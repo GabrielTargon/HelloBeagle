@@ -19,23 +19,23 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         
-//        let beagleViewController = Beagle.screen(
-//            .declarative(
-//                MyBeagleScreen.make()
-//            )
-//        )
+        let beagleViewController = Beagle.screen(
+            .declarative(
+                MyBeagleScreen.make()
+            )
+        )
         let dependencies = BeagleDependencies()
         let client = NetworkClientDefault(dependencies: InnerDependency(logger: Logger()))
         dependencies.networkClient = client
         dependencies.urlBuilder = UrlBuilder(baseUrl: URL(string: "http://localhost:8080"))
-        
+        dependencies.decoder.register(component: BoxWidget.self, named: "BoxWidgetComponent")
         guard let windowScene = (scene as? UIWindowScene) else { return }
         BeagleConfig.start(dependencies: dependencies)
         let beagleScreen = Beagle.screen(.remote(.init(url: "/screen")))
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.windowScene = windowScene
-//        window?.rootViewController = beagleViewController
-        window?.rootViewController = beagleScreen
+        window?.rootViewController = beagleViewController
+//        window?.rootViewController = beagleScreen
         window?.makeKeyAndVisible()
 
     }
